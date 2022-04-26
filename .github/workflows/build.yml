@@ -96,5 +96,5 @@ jobs:
             docker rmi aegon21/mini-project:latest aegon21/mini-project:latest
             docker pull aegon21/mini-project:latest
             docker pull aegon21/mini-project-coverage:latest
-            docker run -d --rm --name mini-project-coverage -p 8001:80 aegon21/mini-project-coverage:latest
-            docker run -d --rm --name mini-project -p 80:8081 --env-file dev.env --network my_network aegon21/mini-project:latest
+            docker run -d --rm --name mini-project-coverage -p 8000:80 aegon21/mini-project-coverage:latest
+            docker run -d --rm --name mini-project -p 80:8080 --env-file dev.env --network my_network aegon21/mini-project:latest
