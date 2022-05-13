@@ -19,6 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @DynamicUpdate
+@Table(name = "M_Order")
 public class Order {
 
     @Id
@@ -49,13 +50,23 @@ public class Order {
     private Integer orderStatus;
 
     @CreationTimestamp
+    @Column(name = "created_at",nullable = false,updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @Column(name = "updated_at",nullable = false)
     private LocalDateTime updatedAt;
 
-
-
+    public Order(User customer) {
+        this.customerEmail = customer.getEmail();
+        this.customerName = customer.getName();
+        this.customerPhone = customer.getPhone();
+        this.customerAddress = customer.getAddress();
+        this.orderAmount = customer.getCart().getProducts().stream().map(item -> item.getProductPrice().multiply(new BigDecimal(item.getCount())))
+                .reduce(BigDecimal::add)
+                .orElse(new BigDecimal(0));
+        this.orderStatus = 0;
+    }
 
 }
 

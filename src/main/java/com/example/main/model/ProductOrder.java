@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -62,5 +63,10 @@ public class ProductOrder {
         this.productPrice = product.getProductPrice();
         this.productStock = product.getProductStock();
         this.count = quantity;
+    }
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), id, productId, productName, productDescription, productImage, categoryType, productPrice);
     }
 }

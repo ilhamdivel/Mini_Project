@@ -8,6 +8,8 @@ import java.util.Collection;
 
 @Repository
 public interface UserRepository extends JpaRepository<User,String> {
+    //find user by email
     User findByEmail(String email);
-    Collection<User> findAllByRole(String role);
+
+    void deleteByEmail(String email);
 }

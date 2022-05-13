@@ -6,14 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CategoryRepository extends JpaRepository<Category, Long> {
-
-    //list category
-    List<Category> findByCategoryTypeInOrderByCategoryTypeAsc(List<Integer> categoryTypes);
-
-    //all category
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
+    //find all category
     List<Category> findAllByOrderByCategoryType();
 
-    //one category
+    //find product by category type
     Category findByCategoryType(Integer categoryType);
+
+    //delete by category type
+    void deleteCategoryByCategoryType(Integer categoryType);
 }

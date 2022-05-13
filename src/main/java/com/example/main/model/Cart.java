@@ -20,7 +20,7 @@ public class Cart {
     private Long cartId;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
+    @MapsId //primary key parent = child
     @JsonIgnore //fix looping error
     private User user;
 

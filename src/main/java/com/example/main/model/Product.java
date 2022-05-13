@@ -41,7 +41,8 @@ public class Product {
     @Column(name = "product_image",nullable = false)
     private String productImage;
 
-    /** 0:Ready ---- 1:Not Ready */
+    // 0 = Available
+    // 1 = Unavailable
     @ColumnDefault("0")
     @Column(name = "product_status")
     private Integer productStatus;
@@ -51,9 +52,11 @@ public class Product {
     private Integer categoryType;
 
     @CreationTimestamp
+    @Column(name = "created_at",nullable = false,updatable = false)
     private Date createAt;
 
     @UpdateTimestamp
+    @Column(name = "updated_at",nullable = false)
     private Date updateAt;
 
 

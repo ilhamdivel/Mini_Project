@@ -11,7 +11,6 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Data
-@Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -35,6 +34,9 @@ public class User {
 
     @Column(name = "address", nullable = false)
     private String address;
+
+    @Column(name = "active",nullable = false)
+    private boolean active;
 
     @Column(name = "role",nullable = false)
     private String role = "Customer";

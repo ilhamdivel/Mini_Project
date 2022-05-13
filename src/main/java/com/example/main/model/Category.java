@@ -19,7 +19,7 @@ import java.util.Date;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long categoryId;
+    private Integer categoryId;
 
     @Column(name = "category_name",nullable = false)
     private String categoryName;
@@ -29,8 +29,10 @@ public class Category {
     private Integer categoryType;
 
     @CreationTimestamp
+    @Column(name = "created_at",nullable = false,updatable = false)
     private Date createAt;
 
     @UpdateTimestamp
+    @Column(name = "updated_at",nullable = false)
     private Date updateAt;
 }

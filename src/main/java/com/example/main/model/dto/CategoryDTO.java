@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 @Setter
 @Getter
 public class CategoryDTO {
+
     private String category;
 
     private Page<Product> page;
