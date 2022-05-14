@@ -1,13 +1,15 @@
 package com.example.main;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class MainApplicationTests {
+import com.example.main.service.impl.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-    @Test
-    void contextLoads() {
-    }
 
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+        UserServiceImplTest.class,
+        ProductServiceImplTest.class
+})
+public class MainApplicationTests {
 }
