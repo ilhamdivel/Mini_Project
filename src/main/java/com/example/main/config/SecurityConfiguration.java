@@ -37,10 +37,10 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
     @Qualifier("dataSource")
     DataSource dataSource;
 
-    @Value("select email, password, active from user where email=?")
+    @Value("select email, password, active from users where email=?")
     private String usersQuery;
 
-    @Value("select email, role from user where email=?")
+    @Value("select email, role from users where email=?")
     private String rolesQuery;
 
     @Override
