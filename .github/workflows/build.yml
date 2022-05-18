@@ -92,9 +92,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            docker stop mini-project mini-project-coverage
             docker rmi aegon21/mini-project:latest aegon21/mini-project:latest
             docker pull aegon21/mini-project:latest
-            docker pull aegon21/mini-project-coverage:latest
-            docker run -d --rm --name mini-project-coverage -p 8000:80 aegon21/mini-project-coverage:latest
             docker run -d --rm --name mini-project -p 80:8080 --env-file dev.env --network my_network aegon21/mini-project:latest
